@@ -1,0 +1,86 @@
+{
+    "key": "group_journey",
+    "title": "Journey Details",
+    "fields": [
+        {
+            "key": "field_hero_summary",
+            "label": "Hero Summary",
+            "name": "hero_summary",
+            "type": "textarea"
+        },
+        {
+            "key": "field_learning_objectives",
+            "label": "Learning Objectives",
+            "name": "learning_objectives",
+            "type": "repeater",
+            "sub_fields": [
+                {
+                    "key": "field_objective",
+                    "label": "Objective",
+                    "name": "objective",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "key": "field_estimated_duration",
+            "label": "Estimated Duration",
+            "name": "estimated_duration",
+            "type": "text"
+        },
+        {
+            "key": "field_included_items",
+            "label": "Included Items",
+            "name": "included_items",
+            "type": "repeater",
+            "sub_fields": [
+                {
+                    "key": "field_item_type",
+                    "label": "Item Type",
+                    "name": "item_type",
+                    "type": "select",
+                    "choices": {
+                        "cpd_article": "CPD Article",
+                        "webinar": "Webinar",
+                        "research_paper": "Research Paper"
+                    }
+                },
+                {
+                    "key": "field_item_post_id",
+                    "label": "Item Post ID",
+                    "name": "item_post_id",
+                    "type": "number"
+                },
+                {
+                    "key": "field_order",
+                    "label": "Order",
+                    "name": "order",
+                    "type": "number"
+                },
+                {
+                    "key": "field_is_required",
+                    "label": "Is Required?",
+                    "name": "is_required",
+                    "type": "true_false",
+                    "ui": 1
+                }
+            ]
+        },
+        {
+            "key": "field_journey_badge_label",
+            "label": "Journey Badge Label",
+            "name": "journey_badge_label",
+            "type": "text"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "journey"
+            }
+        ]
+    ],
+    "active": true
+}

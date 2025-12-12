@@ -1,0 +1,59 @@
+{
+    "key": "group_digital_magazine",
+    "title": "Digital Magazine Details",
+    "fields": [
+        {
+            "key": "field_issue_title",
+            "label": "Issue Title",
+            "name": "issue_title",
+            "type": "text"
+        },
+        {
+            "key": "field_volume",
+            "label": "Volume",
+            "name": "volume",
+            "type": "text"
+        },
+        {
+            "key": "field_issue_number",
+            "label": "Issue Number",
+            "name": "issue_number",
+            "type": "text"
+        },
+        {
+            "key": "field_publication_date",
+            "label": "Publication Date",
+            "name": "publication_date",
+            "type": "date_picker"
+        },
+        {
+            "key": "field_issuu_document_id",
+            "label": "Issuu Document ID / Embed",
+            "name": "issuu_document_id",
+            "type": "text"
+        },
+        {
+            "key": "field_pdf_download",
+            "label": "PDF Download",
+            "name": "pdf_download",
+            "type": "file"
+        },
+        {
+            "key": "field_is_open_access",
+            "label": "Is Open Access?",
+            "name": "is_open_access",
+            "type": "true_false",
+            "ui": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "digital_magazine"
+            }
+        ]
+    ],
+    "active": true
+}

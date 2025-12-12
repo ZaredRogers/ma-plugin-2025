@@ -1,0 +1,22 @@
+{
+    "key": "group_medical_academic_options",
+    "title": "General Settings",
+    "fields": [
+        {
+            "key": "field_ma_api_key",
+            "label": "API Key",
+            "name": "ma_api_key",
+            "type": "text"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "medical-academic-settings"
+            }
+        ]
+    ],
+    "active": true
+}

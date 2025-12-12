@@ -1,0 +1,84 @@
+{
+    "key": "group_research_paper",
+    "title": "Research Paper Details",
+    "fields": [
+        {
+            "key": "field_abstract",
+            "label": "Abstract",
+            "name": "abstract",
+            "type": "textarea"
+        },
+        {
+            "key": "field_authors",
+            "label": "Authors",
+            "name": "authors",
+            "type": "repeater",
+            "sub_fields": [
+                {
+                    "key": "field_author_name",
+                    "label": "Name",
+                    "name": "name",
+                    "type": "text"
+                },
+                {
+                    "key": "field_author_affiliation",
+                    "label": "Affiliation",
+                    "name": "affiliation",
+                    "type": "text"
+                },
+                {
+                    "key": "field_author_role",
+                    "label": "Role",
+                    "name": "role",
+                    "type": "text"
+                },
+                {
+                    "key": "field_author_bio",
+                    "label": "Bio",
+                    "name": "bio",
+                    "type": "textarea"
+                },
+                {
+                    "key": "field_author_photo",
+                    "label": "Photo",
+                    "name": "photo",
+                    "type": "image"
+                }
+            ]
+        },
+        {
+            "key": "field_doi",
+            "label": "DOI",
+            "name": "doi",
+            "type": "text"
+        },
+        {
+            "key": "field_journal",
+            "label": "Journal / Publication",
+            "name": "journal",
+            "type": "text"
+        },
+        {
+            "key": "field_research_cpd_points",
+            "label": "CPD Points",
+            "name": "cpd_points",
+            "type": "number"
+        },
+        {
+            "key": "field_pagination_breaks",
+            "label": "Pagination Breaks",
+            "name": "pagination_breaks",
+            "type": "text"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "research_paper"
+            }
+        ]
+    ],
+    "active": true
+}

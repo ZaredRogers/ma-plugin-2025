@@ -1,0 +1,123 @@
+{
+    "key": "group_webinar",
+    "title": "Webinar Details",
+    "fields": [
+        {
+            "key": "field_webinarjam_id",
+            "label": "WebinarJam ID / Integration ID",
+            "name": "webinarjam_id",
+            "type": "text"
+        },
+        {
+            "key": "field_start_datetime",
+            "label": "Start Date & Time",
+            "name": "start_datetime",
+            "type": "date_time_picker"
+        },
+        {
+            "key": "field_end_datetime",
+            "label": "End Date & Time",
+            "name": "end_datetime",
+            "type": "date_time_picker"
+        },
+        {
+            "key": "field_status",
+            "label": "Status",
+            "name": "status",
+            "type": "select",
+            "choices": {
+                "upcoming": "Upcoming",
+                "live": "Live",
+                "replay": "Replay"
+            }
+        },
+        {
+            "key": "field_webinar_cpd_points",
+            "label": "CPD Points",
+            "name": "cpd_points",
+            "type": "number"
+        },
+        {
+            "key": "field_webinar_accreditation_expiry",
+            "label": "Accreditation Expiry",
+            "name": "accreditation_expiry",
+            "type": "date_picker"
+        },
+        {
+            "key": "field_speakers",
+            "label": "Speakers",
+            "name": "speakers",
+            "type": "repeater",
+            "sub_fields": [
+                {
+                    "key": "field_speaker_name",
+                    "label": "Name",
+                    "name": "speaker_name",
+                    "type": "text"
+                },
+                {
+                    "key": "field_speaker_title",
+                    "label": "Title",
+                    "name": "speaker_title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_speaker_bio",
+                    "label": "Bio",
+                    "name": "speaker_bio",
+                    "type": "textarea"
+                },
+                {
+                    "key": "field_speaker_photo",
+                    "label": "Photo",
+                    "name": "speaker_photo",
+                    "type": "image"
+                }
+            ]
+        },
+        {
+            "key": "field_registration_form_config",
+            "label": "Registration Form Config",
+            "name": "registration_form_config",
+            "type": "textarea"
+        },
+        {
+            "key": "field_replay_url",
+            "label": "Replay URL / Embed",
+            "name": "replay_url",
+            "type": "url"
+        },
+        {
+            "key": "field_is_paid",
+            "label": "Is Paid?",
+            "name": "is_paid",
+            "type": "true_false",
+            "ui": 1
+        },
+        {
+            "key": "field_price",
+            "label": "Price",
+            "name": "price",
+            "type": "number",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_is_paid",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "webinar"
+            }
+        ]
+    ],
+    "active": true
+}

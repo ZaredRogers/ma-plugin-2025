@@ -1,0 +1,38 @@
+{
+    "key": "group_supplement",
+    "title": "Supplement Details",
+    "fields": [
+        {
+            "key": "field_supplement_issue_title",
+            "label": "Issue Title",
+            "name": "issue_title",
+            "type": "text"
+        },
+        {
+            "key": "field_supplement_publication_date",
+            "label": "Publication Date",
+            "name": "publication_date",
+            "type": "date_picker"
+        },
+        {
+            "key": "field_related_magazine_issue",
+            "label": "Related Magazine Issue",
+            "name": "related_magazine_issue",
+            "type": "relationship",
+            "post_type": [
+                "digital_magazine"
+            ],
+            "max": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "supplement"
+            }
+        ]
+    ],
+    "active": true
+}

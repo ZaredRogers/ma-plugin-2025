@@ -1,0 +1,89 @@
+{
+    "key": "group_cpd_article",
+    "title": "CPD Article Details",
+    "fields": [
+        {
+            "key": "field_headline",
+            "label": "Headline",
+            "name": "headline",
+            "type": "text"
+        },
+        {
+            "key": "field_subheading",
+            "label": "Subheading",
+            "name": "subheading",
+            "type": "textarea"
+        },
+        {
+            "key": "field_cpd_points",
+            "label": "CPD Points",
+            "name": "cpd_points",
+            "type": "number",
+            "default_value": 1,
+            "min": 1,
+            "max": 5
+        },
+        {
+            "key": "field_cpd_accreditation_numbers",
+            "label": "CPD Accreditation Numbers",
+            "name": "cpd_accreditation_numbers",
+            "type": "repeater",
+            "sub_fields": [
+                {
+                    "key": "field_accreditation_number",
+                    "label": "Number",
+                    "name": "number",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "key": "field_accreditation_expiry",
+            "label": "Accreditation Expiry",
+            "name": "accreditation_expiry",
+            "type": "date_picker"
+        },
+        {
+            "key": "field_pass_mark",
+            "label": "Pass Mark (%)",
+            "name": "pass_mark",
+            "type": "number",
+            "default_value": 75
+        },
+        {
+            "key": "field_quiz_group",
+            "label": "Quiz Group",
+            "name": "quiz_group",
+            "type": "relationship",
+            "post_type": [
+                "quiz"
+            ]
+        },
+        {
+            "key": "field_certificate_template",
+            "label": "Certificate Template",
+            "name": "certificate_template",
+            "type": "file"
+        },
+        {
+            "key": "field_related_articles",
+            "label": "Related Articles",
+            "name": "related_articles",
+            "type": "relationship",
+            "post_type": [
+                "cpd_article"
+            ],
+            "max": 3
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "cpd_article"
+            }
+        ]
+    ],
+    "active": true
+}
