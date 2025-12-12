@@ -69,11 +69,12 @@ class Options {
 
 		acf_add_options_page(
 			array(
-				'page_title' => __( 'Medical Academic Settings', 'medical-academic-enhancements' ),
-				'menu_title' => __( 'MA Settings', 'medical-academic-enhancements' ),
-				'menu_slug'  => self::OPTIONS_PAGE,
-				'capability' => 'manage_options',
-				'redirect'   => false,
+				'page_title'  => __( 'Medical Academic Settings', 'medical-academic-enhancements' ),
+				'menu_title'  => __( 'Medical Academic', 'medical-academic-enhancements' ),
+				'menu_slug'   => self::OPTIONS_PAGE,
+				'capability'  => 'manage_options',
+				'parent_slug' => 'options-general.php',
+				'redirect'    => false,
 			)
 		);
 	}
