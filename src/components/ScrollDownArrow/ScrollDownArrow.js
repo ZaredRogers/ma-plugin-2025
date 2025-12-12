@@ -35,7 +35,7 @@ import './style.scss';
  */
 export default function ScrollDownArrow({
 	targetSectionId,
-	ariaLabel = __('Scroll to next section', '{{textdomain}}'),
+	ariaLabel = __('Scroll to next section', 'medical-academic-enhancements'),
 	className = '',
 	onClick,
 }) {
@@ -71,7 +71,7 @@ export default function ScrollDownArrow({
 			// Announce to screen readers
 			const announcement = targetSectionId
 				? `Scrolled to ${targetSectionId}`
-				: __('Scrolled to next section', '{{textdomain}}');
+				: __('Scrolled to next section', 'medical-academic-enhancements');
 			const ariaLive = document.createElement('div');
 			ariaLive.setAttribute('aria-live', 'polite');
 			ariaLive.setAttribute('class', 'screen-reader-text');

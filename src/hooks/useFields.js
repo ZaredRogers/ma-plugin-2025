@@ -16,7 +16,7 @@ import { useSelect } from '@wordpress/data';
  *
  * @return {Object} Fields data and loading state.
  */
-export default function useFields(postId, postType = '{{cpt_slug}}') {
+export default function useFields(postId, postType = 'cpd_article') {
 	return useSelect(
 		(select) => {
 			if (!postId) {

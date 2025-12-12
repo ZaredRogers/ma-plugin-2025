@@ -24,11 +24,11 @@ import { ComboboxControl, Spinner } from '@wordpress/components';
  * @return {Element} PostSelector component.
  */
 export default function PostSelector({
-	postType = '{{cpt_slug}}',
+	postType = 'cpd_article',
 	value,
 	onChange,
-	label = __('Select Post', '{{textdomain}}'),
-	placeholder = __('Search posts…', '{{textdomain}}'),
+	label = __('Select Post', 'medical-academic-enhancements'),
+	placeholder = __('Search posts…', 'medical-academic-enhancements'),
 }) {
 	const [search, setSearch] = useState('');
 
@@ -59,7 +59,7 @@ export default function PostSelector({
 	const options =
 		posts?.map((post) => ({
 			value: post.id,
-			label: post.title.rendered || __('(No title)', '{{textdomain}}'),
+			label: post.title.rendered || __('(No title)', 'medical-academic-enhancements'),
 		})) || [];
 
 	return (

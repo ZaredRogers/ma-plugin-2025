@@ -14,8 +14,8 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 
 global $wpdb;
 
-$slug      = '{{textdomain}}';
-$post_type = '{{textdomain}}';
+$slug      = 'medical-academic-enhancements';
+$post_type = 'medical-academic-enhancements';
 $taxonomy  = 'example-plugin_category';
 
 /**

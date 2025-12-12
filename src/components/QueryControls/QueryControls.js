@@ -40,62 +40,62 @@ export default function QueryControls({ query, onChange }) {
 
 	return (
 		<InspectorControls>
-			<PanelBody title={__('Query Settings', '{{textdomain}}')}>
+			<PanelBody title={__('Query Settings', 'medical-academic-enhancements')}>
 				<RangeControl
-					label={__('Number of Items', '{{textdomain}}')}
+					label={__('Number of Items', 'medical-academic-enhancements')}
 					value={perPage}
 					onChange={(value) => updateQuery({ perPage: value })}
 					min={1}
 					max={24}
 				/>
 				<SelectControl
-					label={__('Order By', '{{textdomain}}')}
+					label={__('Order By', 'medical-academic-enhancements')}
 					value={orderBy}
 					options={[
-						{ label: __('Date', '{{textdomain}}'), value: 'date' },
+						{ label: __('Date', 'medical-academic-enhancements'), value: 'date' },
 						{
-							label: __('Title', '{{textdomain}}'),
+							label: __('Title', 'medical-academic-enhancements'),
 							value: 'title',
 						},
 						{
-							label: __('Modified', '{{textdomain}}'),
+							label: __('Modified', 'medical-academic-enhancements'),
 							value: 'modified',
 						},
 						{
-							label: __('Random', '{{textdomain}}'),
+							label: __('Random', 'medical-academic-enhancements'),
 							value: 'rand',
 						},
 						{
-							label: __('Menu Order', '{{textdomain}}'),
+							label: __('Menu Order', 'medical-academic-enhancements'),
 							value: 'menu_order',
 						},
 					]}
 					onChange={(value) => updateQuery({ orderBy: value })}
 				/>
 				<SelectControl
-					label={__('Order', '{{textdomain}}')}
+					label={__('Order', 'medical-academic-enhancements')}
 					value={order}
 					options={[
 						{
-							label: __('Descending', '{{textdomain}}'),
+							label: __('Descending', 'medical-academic-enhancements'),
 							value: 'desc',
 						},
 						{
-							label: __('Ascending', '{{textdomain}}'),
+							label: __('Ascending', 'medical-academic-enhancements'),
 							value: 'asc',
 						},
 					]}
 					onChange={(value) => updateQuery({ order: value })}
 				/>
 				<ToggleControl
-					label={__('Featured Only', '{{textdomain}}')}
+					label={__('Featured Only', 'medical-academic-enhancements')}
 					checked={featured}
 					onChange={(value) => updateQuery({ featured: value })}
 				/>
 			</PanelBody>
 
 			<PanelBody
-				title={__('Filter by Taxonomy', '{{textdomain}}')}
+				title={__('Filter by Taxonomy', 'medical-academic-enhancements')}
 				initialOpen={false}
 			>
 				<TaxonomyFilter
@@ -108,7 +108,7 @@ export default function QueryControls({ query, onChange }) {
 								: null,
 						})
 					}
-					label={__('Categories', '{{textdomain}}')}
+					label={__('Categories', 'medical-academic-enhancements')}
 				/>
 			</PanelBody>
 		</InspectorControls>

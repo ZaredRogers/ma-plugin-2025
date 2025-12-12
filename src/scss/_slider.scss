@@ -1,11 +1,11 @@
 /**
  * Slider Styles Partial
  *
- * @package {{namespace}}
+ * @package medical_academic_enhancements
  */
 
 // Common slider styles shared across blocks.
-.{{namespace}}-slider-common {
+.medical_academic_enhancements-slider-common {
 	position: relative;
 	overflow: hidden;
 
@@ -15,7 +15,7 @@
 
 	&__track {
 		display: flex;
-		transition: transform var(--{{namespace}}-transition);
+		transition: transform var(--medical_academic_enhancements-transition);
 	}
 
 	&__slide {
@@ -34,17 +34,17 @@
 		height: 10px;
 		border: none;
 		border-radius: 50%;
-		background-color: var(--{{namespace}}-border-color);
+		background-color: var(--medical_academic_enhancements-border-color);
 		cursor: pointer;
 		padding: 0;
-		transition: background-color var(--{{namespace}}-transition);
+		transition: background-color var(--medical_academic_enhancements-transition);
 
 		&:hover {
-			background-color: var(--{{namespace}}-secondary-color);
+			background-color: var(--medical_academic_enhancements-secondary-color);
 		}
 
 		&.is-active {
-			background-color: var(--{{namespace}}-primary-color);
+			background-color: var(--medical_academic_enhancements-primary-color);
 		}
 	}
 
@@ -62,7 +62,7 @@
 		align-items: center;
 		justify-content: center;
 		z-index: 10;
-		transition: background-color var(--{{namespace}}-transition);
+		transition: background-color var(--medical_academic_enhancements-transition);
 
 		&:hover {
 			background-color: #fff;

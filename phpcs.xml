@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<ruleset name="{{name}} Coding Standards">
-	<description>Coding standards for {{name}} WordPress plugin.</description>
+<ruleset name="Medical Academic Enhancements Coding Standards">
+	<description>Coding standards for Medical Academic Enhancements WordPress plugin.</description>
 
 	<!-- What to scan -->
 	<file>.</file>
@@ -26,7 +26,7 @@
 	<rule ref="WordPress.WP.I18n">
 		<properties>
 			<property name="text_domain" type="array">
-				<element value="{{textdomain}}"/>
+				<element value="medical-academic-enhancements"/>
 			</property>
 		</properties>
 	</rule>

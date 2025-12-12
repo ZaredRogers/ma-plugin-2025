@@ -12,7 +12,7 @@ const fs = require('fs');
 
 const rootDir = path.resolve(__dirname, '..');
 
-console.log('🚀 Building Example Plugin...\n');
+console.log('🚀 Building Medical Academic Enhancements...\n');
 
 // Clean build directory.
 const buildDir = path.join(rootDir, 'build');
@@ -22,7 +22,7 @@ if (fs.existsSync(buildDir)) {
 
 // Run webpack build.
 try {
-	execSync('npm run build', {
+	execSync('npm run build:quick', {
 		cwd: rootDir,
 		stdio: 'inherit',
 	});

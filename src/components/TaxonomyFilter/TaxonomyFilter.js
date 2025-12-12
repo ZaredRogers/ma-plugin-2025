@@ -26,7 +26,7 @@ export default function TaxonomyFilter({
 	taxonomy = 'example-plugin_category',
 	value = [],
 	onChange,
-	label = __('Filter by Category', '{{textdomain}}'),
+	label = __('Filter by Category', 'medical-academic-enhancements'),
 	multiple = true,
 }) {
 	const { terms, isLoading } = useSelect(
@@ -57,7 +57,7 @@ export default function TaxonomyFilter({
 	}
 
 	if (!terms || terms.length === 0) {
-		return <p>{__('No terms found.', '{{textdomain}}')}</p>;
+		return <p>{__('No terms found.', 'medical-academic-enhancements')}</p>;
 	}
 
 	if (multiple) {
@@ -84,7 +84,7 @@ export default function TaxonomyFilter({
 	}
 
 	const options = [
-		{ value: '', label: __('All', '{{textdomain}}') },
+		{ value: '', label: __('All', 'medical-academic-enhancements') },
 		...terms.map((term) => ({
 			value: term.id.toString(),
 			label: term.name,

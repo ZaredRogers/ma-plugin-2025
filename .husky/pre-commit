@@ -1,14 +1,14 @@
 #!/usr/bin/env sh
 
-# Pre-commit hook for {{slug}} plugin
+# Pre-commit hook for medical-academic-enhancements plugin
 # This hook runs before each commit to ensure code quality
 
 . "$(dirname -- "$0")/_/husky.sh"
 
-echo "🔍 Running pre-commit checks for {{name}}..."
+echo "🔍 Running pre-commit checks for Medical Academic Enhancements..."
 
 # Check if this is a scaffold template (has mustache variables)
-if grep -q "{{slug}}" package.json 2>/dev/null; then
+if grep -q "medical-academic-enhancements" package.json 2>/dev/null; then
     echo "📋 Scaffold template detected - running safe dry-run checks..."
     npm run dry-run:all || {
         echo "❌ Dry-run checks failed. Please fix the issues and try again."
@@ -21,7 +21,7 @@ fi
 
 # Run PHP linting (if composer is available and not in scaffold mode)
 if command -v composer &> /dev/null; then
-    if ! grep -q "{{slug}}" package.json 2>/dev/null; then
+    if ! grep -q "medical-academic-enhancements" package.json 2>/dev/null; then
         echo "🟡 Linting PHP..."
         composer run lint || {
             echo "❌ PHP linting failed. Please fix the issues and try again."

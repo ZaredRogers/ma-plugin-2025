@@ -1,5 +1,5 @@
 <?php
-namespace {{namespace|lowerCase}}\classes;
+namespace medical_academic_enhancements\classes;
 
 /**
  * SCF Local JSON Configuration.

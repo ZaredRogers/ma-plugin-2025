@@ -215,12 +215,12 @@ When `fitText` is enabled:
 {
   "$schema": "https://schemas.wp.org/wp/6.9/block.json",
   "apiVersion": 3,
-  "name": "{{namespace}}/{{block-name}}",
+  "name": "medical_academic_enhancements/{{block-name}}",
   "title": "{{block-title}}",
-  "category": "{{slug}}",
+  "category": "medical-academic-enhancements",
   "description": "{{block-description}}",
   "icon": "{{block-icon}}",
-  "keywords": ["{{slug}}", "block"],
+  "keywords": ["medical-academic-enhancements", "block"],
 
   "attributes": {
     "title": {
@@ -266,13 +266,13 @@ When `fitText` is enabled:
   },
 
   "selectors": {
-    "root": ".{{namespace}}-{{block-name}}",
+    "root": ".medical_academic_enhancements-{{block-name}}",
     "color": {
-      "text": ".{{namespace}}-{{block-name}}__text",
-      "background": ".{{namespace}}-{{block-name}}"
+      "text": ".medical_academic_enhancements-{{block-name}}__text",
+      "background": ".medical_academic_enhancements-{{block-name}}"
     },
     "typography": {
-      "fontSize": ".{{namespace}}-{{block-name}}__title"
+      "fontSize": ".medical_academic_enhancements-{{block-name}}__title"
     }
   }
 }
@@ -284,8 +284,8 @@ When `fitText` is enabled:
 {
   "$schema": "https://schemas.wp.org/wp/6.9/block.json",
   "apiVersion": 3,
-  "name": "{{namespace}}/{{collection-block}}",
-  "title": "{{name}} Collection",
+  "name": "medical_academic_enhancements/{{collection-block}}",
+  "title": "Medical Academic Enhancements Collection",
 
   "attributes": {
     "query": {
@@ -327,8 +327,8 @@ When `fitText` is enabled:
 {
   "$schema": "https://schemas.wp.org/wp/6.9/block.json",
   "apiVersion": 3,
-  "name": "{{namespace}}/{{slider-block}}",
-  "title": "{{name}} Slider",
+  "name": "medical_academic_enhancements/{{slider-block}}",
+  "title": "Medical Academic Enhancements Slider",
 
   "attributes": {
     "sliderHeight": {
@@ -390,12 +390,12 @@ if ( isset( $attributes['style']['typography']['fitText'] ) && $attributes['styl
 ### CSS Support
 
 ```css
-.wp-block-{{namespace}}-{{block}} {
+.wp-block-medical_academic_enhancements- {
     /* FitText automatically handles sizing */
     /* Respects theme.json typography settings */
 }
 
-.wp-block-{{namespace}}-{{block}}.has-fit-text {
+.wp-block-medical_academic_enhancements-.has-fit-text {
     /* User enabled fit-text via UI */
     resize: both;
 }

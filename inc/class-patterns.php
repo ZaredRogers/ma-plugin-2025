@@ -1,5 +1,5 @@
 <?php
-namespace {{namespace|lowerCase}}\classes;
+namespace medical_academic_enhancements\classes;
 
 /**
  * Block Patterns Registration.
@@ -33,9 +33,9 @@ class Patterns {
 	 */
 	public function register_pattern_category() {
 		register_block_pattern_category(
-			'{{textdomain}}',
+			'medical-academic-enhancements',
 			array(
-				'label' => __( 'Example Plugin', '{{textdomain}}' ),
+				'label' => __( 'Example Plugin', 'medical-academic-enhancements' ),
 			)
 		);
 	}

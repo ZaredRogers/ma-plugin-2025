@@ -1,5 +1,5 @@
 <?php
-namespace {{namespace|lowerCase}}\classes;
+namespace medical_academic_enhancements\classes;
 
 /**
  * Block Bindings Registration.
@@ -24,7 +24,7 @@ class Block_Bindings {
 	 *
 	 * @var string
 	 */
-	const SOURCE = '{{namespace}}/fields';
+	const SOURCE = 'medical_academic_enhancements/fields';
 
 	/**
 	 * Constructor.
@@ -46,7 +46,7 @@ class Block_Bindings {
 		register_block_bindings_source(
 			'example-plugin/post-meta',
 			array(
-				'label'              => __( 'Example Plugin Post Meta', '{{textdomain}}' ),
+				'label'              => __( 'Example Plugin Post Meta', 'medical-academic-enhancements' ),
 				'get_value_callback' => array( $this, 'get_post_meta_value' ),
 				'uses_context'       => array( 'postId' ),
 			)

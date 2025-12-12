@@ -36,7 +36,7 @@ import './style.scss';
 export default function ScrollToTop({
 	showAfter = 20,
 	className = '',
-	ariaLabel = __('Scroll to top of page', '{{textdomain}}'),
+	ariaLabel = __('Scroll to top of page', 'medical-academic-enhancements'),
 }) {
 	const [isVisible, setIsVisible] = useState(false);
 	const throttleTimeoutRef = useRef(null);

@@ -1,0 +1,16 @@
+/**
+ * Medical Academic Enhancements Card Block - Editor Styles
+ *
+ * @package medical_academic_enhancements
+ */
+
+.wp-block-medical_academic_enhancements-medical-academic-enhancements-card {
+	&__placeholder {
+		padding: 2rem;
+		text-align: center;
+		background-color: #f0f0f0;
+		border: 2px dashed #ccc;
+		border-radius: 4px;
+		color: #666;
+	}
+}

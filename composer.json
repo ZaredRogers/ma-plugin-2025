@@ -1,0 +1,26 @@
+{
+  "name": "medical_academic_enhancements/medical-academic-enhancements",
+  "description": "Registers CPTs, taxonomies, and blocks for the Medical Academic platform.",
+  "version": "1.0.0",
+  "type": "wordpress-plugin",
+  "license": "GPL-3.0-or-later",
+  "authors": [
+    {
+      "name": "LightSpeed",
+      "homepage": "https://lightspeedwp.agency"
+    }
+  ],
+  "require": {
+    "php": ">=8.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.0",
+    "wp-coding-standards/wpcs": "^3.0",
+    "phpstan/phpstan": "^1.10"
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  }
+}

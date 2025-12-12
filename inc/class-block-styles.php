@@ -38,7 +38,7 @@ class Block_Styles {
 			array( 'core/group', 'core/columns' ),
 			array(
 				'name'       => 'example-plugin-section-highlight',
-				'label'      => __( 'Example Plugin Section Highlight', '{{textdomain}}' ),
+				'label'      => __( 'Example Plugin Section Highlight', 'medical-academic-enhancements' ),
 				'style_data' => array(
 					'color' => array(
 						'background' => 'var:preset|color|contrast',

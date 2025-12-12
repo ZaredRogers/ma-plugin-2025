@@ -1,4 +1,4 @@
-// Jest configuration for {{name}}
+// Jest configuration for Medical Academic Enhancements
 module.exports = {
 	...require( '@wordpress/jest-preset-default' ),
 	testEnvironment: 'jsdom',

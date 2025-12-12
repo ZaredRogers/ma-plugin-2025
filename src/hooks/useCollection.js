@@ -17,7 +17,7 @@ import { useSelect } from '@wordpress/data';
  */
 export default function useCollection(query = {}) {
 	const {
-		postType = '{{cpt_slug}}',
+		postType = 'cpd_article',
 		perPage = 6,
 		page = 1,
 		order = 'desc',

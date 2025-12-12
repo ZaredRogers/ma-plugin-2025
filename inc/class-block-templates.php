@@ -1,5 +1,5 @@
 <?php
-namespace {{namespace|lowerCase}}\classes;
+namespace medical_academic_enhancements\classes;
 
 /**
  * Block Templates Registration.
@@ -43,8 +43,8 @@ class Block_Templates {
 			register_block_template(
 				'example-plugin//example-archive',
 				array(
-					'title'       => __( 'Example Plugin Example Archive', '{{textdomain}}' ),
-					'description' => __( 'Example archive template registered by the plugin.', '{{textdomain}}' ),
+					'title'       => __( 'Example Plugin Example Archive', 'medical-academic-enhancements' ),
+					'description' => __( 'Example archive template registered by the plugin.', 'medical-academic-enhancements' ),
 					'post_types'  => array( 'post' ),
 					'content'     => file_get_contents( $template_file ),
 				)

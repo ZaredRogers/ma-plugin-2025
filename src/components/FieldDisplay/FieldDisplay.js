@@ -35,7 +35,7 @@ export default function FieldDisplay({
 
 			const post = select('core').getEntityRecord(
 				'postType',
-				'{{textdomain}}',
+				'medical-academic-enhancements',
 				postId
 			);
 
@@ -101,8 +101,8 @@ export default function FieldDisplay({
 
 			case 'boolean':
 				return fieldValue
-					? __('Yes', '{{textdomain}}')
-					: __('No', '{{textdomain}}');
+					? __('Yes', 'medical-academic-enhancements')
+					: __('No', 'medical-academic-enhancements');
 
 			default:
 				return String(fieldValue);
