@@ -7,8 +7,6 @@ namespace medical_academic_enhancements\classes;
  * @package example_plugin
  */
 
-namespace example_plugin\classes;
-
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -35,7 +33,7 @@ class Patterns {
 		register_block_pattern_category(
 			'medical-academic-enhancements',
 			array(
-				'label' => __( 'Example Plugin', 'medical-academic-enhancements' ),
+				'label' => __( 'Medical Academic', 'medical-academic-enhancements' ),
 			)
 		);
 	}
@@ -57,7 +55,7 @@ class Patterns {
 	 * @return void
 	 */
 	public function register_patterns() {
-		$patterns_dir = EXAMPLE_PLUGIN_PLUGIN_DIR . 'patterns/';
+		$patterns_dir = MEDICAL_ACADEMIC_ENHANCEMENTS_PLUGIN_DIR . 'patterns/';
 
 		if ( ! is_dir( $patterns_dir ) ) {
 			return;
@@ -97,10 +95,10 @@ class Patterns {
 	private function get_pattern_slug_from_file( $pattern_file ) {
 		$filename = basename( $pattern_file, '.php' );
 
-		// Remove example-plugin- prefix if present.
-		$pattern_name = str_replace( 'example-plugin-', '', $filename );
+		// Remove prefix if present.
+		$pattern_name = str_replace( 'medical-academic-enhancements-', '', $filename );
 
 		// Return namespaced slug.
-		return 'example-plugin/' . $pattern_name;
+		return 'medical-academic-enhancements/' . $pattern_name;
 	}
 }

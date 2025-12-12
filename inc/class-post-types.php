@@ -7,8 +7,6 @@ namespace medical_academic_enhancements\classes;
  * @package example_plugin
  */
 
-namespace example_plugin\classes;
-
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -17,13 +15,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Post Types class.
  */
 class Post_Types {
-
-	/**
-	 * Post type slug.
-	 *
-	 * @var string
-	 */
-	const POST_TYPE = 'cpd_article';
 
 	/**
 	 * Constructor.
@@ -38,58 +29,116 @@ class Post_Types {
 	 * @return void
 	 */
 	public function register_post_types() {
-		$labels = array(
-			'name'                  => _x( 'Items', 'Post type general name', 'medical-academic-enhancements' ),
-			'singular_name'         => _x( 'Item', 'Post type singular name', 'medical-academic-enhancements' ),
-			'menu_name'             => _x( 'Items', 'Admin Menu text', 'medical-academic-enhancements' ),
-			'add_new'               => __( 'Add New', 'medical-academic-enhancements' ),
-			'add_new_item'          => __( 'Add New Item', 'medical-academic-enhancements' ),
-			'edit_item'             => __( 'Edit Item', 'medical-academic-enhancements' ),
-			'new_item'              => __( 'New Item', 'medical-academic-enhancements' ),
-			'view_item'             => __( 'View Item', 'medical-academic-enhancements' ),
-			'view_items'            => __( 'View Items', 'medical-academic-enhancements' ),
-			'search_items'          => __( 'Search Items', 'medical-academic-enhancements' ),
-			'not_found'             => __( 'No items found.', 'medical-academic-enhancements' ),
-			'not_found_in_trash'    => __( 'No items found in Trash.', 'medical-academic-enhancements' ),
-			'all_items'             => __( 'All Items', 'medical-academic-enhancements' ),
-			'archives'              => __( 'Item Archives', 'medical-academic-enhancements' ),
-			'attributes'            => __( 'Item Attributes', 'medical-academic-enhancements' ),
-			'insert_into_item'      => __( 'Insert into item', 'medical-academic-enhancements' ),
-			'uploaded_to_this_item' => __( 'Uploaded to this item', 'medical-academic-enhancements' ),
-			'filter_items_list'     => __( 'Filter items list', 'medical-academic-enhancements' ),
-			'items_list_navigation' => __( 'Items list navigation', 'medical-academic-enhancements' ),
-			'items_list'            => __( 'Items list', 'medical-academic-enhancements' ),
+		// CPD Article.
+		register_post_type(
+			'cpd_article',
+			array(
+				'labels'       => array(
+					'name'          => __( 'CPD Articles', 'medical-academic-enhancements' ),
+					'singular_name' => __( 'CPD Article', 'medical-academic-enhancements' ),
+				),
+				'public'       => true,
+				'show_in_rest' => true,
+				'has_archive'  => true,
+				'menu_icon'    => 'dashicons-book',
+				'supports'     => array( 'title', 'editor', 'thumbnail', 'excerpt', 'author' ),
+			)
 		);
 
-		$args = array(
-			'labels'             => $labels,
-			'public'             => true,
-			'publicly_queryable' => true,
-			'show_ui'            => true,
-			'show_in_menu'       => true,
-			'show_in_rest'       => true, // Required for block editor.
-			'query_var'          => true,
-			'rewrite'            => array( 'slug' => 'medical-academic-enhancements' ),
-			'capability_type'    => 'post',
-			'has_archive'        => true,
-			'hierarchical'       => false,
-			'menu_position'      => 20,
-			'menu_icon'          => 'dashicons-admin-generic',
-			'supports'           => array(
-				'title',
-				'editor',
-				'author',
-				'thumbnail',
-				'excerpt',
-				'custom-fields',
-				'revisions',
-			),
-			'template'           => array(
-				array( 'example_plugin/example-plugin-single' ),
-			),
-			'template_lock'      => false,
+		// Webinar.
+		register_post_type(
+			'webinar',
+			array(
+				'labels'       => array(
+					'name'          => __( 'Webinars & Events', 'medical-academic-enhancements' ),
+					'singular_name' => __( 'Webinar/Event', 'medical-academic-enhancements' ),
+				),
+				'public'       => true,
+				'show_in_rest' => true,
+				'has_archive'  => true,
+				'menu_icon'    => 'dashicons-video-alt2',
+				'supports'     => array( 'title', 'editor', 'thumbnail', 'excerpt', 'author', 'custom-fields' ),
+			)
 		);
 
-		register_post_type( self::POST_TYPE, $args );
+		// Digital Magazine.
+		register_post_type(
+			'digital_magazine',
+			array(
+				'labels'       => array(
+					'name'          => __( 'Digital Magazines', 'medical-academic-enhancements' ),
+					'singular_name' => __( 'Digital Magazine', 'medical-academic-enhancements' ),
+				),
+				'public'       => true,
+				'show_in_rest' => true,
+				'has_archive'  => true,
+				'menu_icon'    => 'dashicons-media-document',
+				'supports'     => array( 'title', 'thumbnail', 'custom-fields' ),
+			)
+		);
+
+		// Supplement.
+		register_post_type(
+			'supplement',
+			array(
+				'labels'       => array(
+					'name'          => __( 'Supplements', 'medical-academic-enhancements' ),
+					'singular_name' => __( 'Supplement', 'medical-academic-enhancements' ),
+				),
+				'public'       => true,
+				'show_in_rest' => true,
+				'has_archive'  => false,
+				'menu_icon'    => 'dashicons-plus',
+				'supports'     => array( 'title', 'editor', 'thumbnail', 'custom-fields' ),
+			)
+		);
+
+		// Research Paper.
+		register_post_type(
+			'research_paper',
+			array(
+				'labels'       => array(
+					'name'          => __( 'Research Papers', 'medical-academic-enhancements' ),
+					'singular_name' => __( 'Research Paper', 'medical-academic-enhancements' ),
+				),
+				'public'       => true,
+				'show_in_rest' => true,
+				'has_archive'  => true,
+				'menu_icon'    => 'dashicons-id-alt',
+				'supports'     => array( 'title', 'editor', 'thumbnail', 'author', 'custom-fields' ),
+			)
+		);
+
+		// Journey.
+		register_post_type(
+			'journey',
+			array(
+				'labels'       => array(
+					'name'          => __( 'Journeys/Collections', 'medical-academic-enhancements' ),
+					'singular_name' => __( 'Journey', 'medical-academic-enhancements' ),
+				),
+				'public'       => true,
+				'show_in_rest' => true,
+				'has_archive'  => true,
+				'menu_icon'    => 'dashicons-list-view',
+				'supports'     => array( 'title', 'editor', 'custom-fields' ),
+			)
+		);
+
+		// Advertiser.
+		register_post_type(
+			'advertiser',
+			array(
+				'labels'       => array(
+					'name'          => __( 'Advertisers', 'medical-academic-enhancements' ),
+					'singular_name' => __( 'Advertiser', 'medical-academic-enhancements' ),
+				),
+				'public'       => true,
+				'show_in_rest' => true,
+				'has_archive'  => false,
+				'menu_icon'    => 'dashicons-businessman',
+				'supports'     => array( 'title', 'thumbnail', 'custom-fields' ),
+			)
+		);
 	}
 }

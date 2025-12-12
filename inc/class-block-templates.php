@@ -7,8 +7,6 @@ namespace medical_academic_enhancements\classes;
  * @package example_plugin
  */
 
-namespace example_plugin\classes;
-
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -35,20 +33,7 @@ class Block_Templates {
 			return; // Pre-6.7: no-op.
 		}
 
-		$templates_dir = EXAMPLE_PLUGIN_PLUGIN_DIR . 'templates/';
-
-		$template_file = $templates_dir . 'example-archive.html';
-
-		if ( file_exists( $template_file ) ) {
-			register_block_template(
-				'example-plugin//example-archive',
-				array(
-					'title'       => __( 'Example Plugin Example Archive', 'medical-academic-enhancements' ),
-					'description' => __( 'Example archive template registered by the plugin.', 'medical-academic-enhancements' ),
-					'post_types'  => array( 'post' ),
-					'content'     => file_get_contents( $template_file ),
-				)
-			);
-		}
+		// Register block templates here when needed.
+		// $templates_dir = MEDICAL_ACADEMIC_ENHANCEMENTS_PLUGIN_DIR . 'templates/';
 	}
 }

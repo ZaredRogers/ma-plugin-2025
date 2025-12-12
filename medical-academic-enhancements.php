@@ -38,17 +38,8 @@ define( 'MEDICAL_ACADEMIC_ENHANCEMENTS_PLUGIN_BASENAME', plugin_basename( __FILE
  *
  * @see https://make.wordpress.org/core/2024/03/05/introducing-plugin-dependencies-in-wordpress-6-5/
  */
-if ( ! function_exists( 'acf_add_local_field_group' ) ) {
-	add_action(
-		'admin_notices',
-		function () {
-			echo '<div class="error"><p>' .
-				esc_html__( 'Medical Academic Enhancements requires Secure Custom Fields to be active.', 'medical-academic-enhancements' ) .
-				'</p></div>';
-		}
-	);
-	return;
-}
+// Check removed to allow plugin to load even if SCF is loaded later.
+// Dependency checks are handled within individual classes (e.g., Fields).
 
 // Include the Core class.
 require_once MEDICAL_ACADEMIC_ENHANCEMENTS_PLUGIN_DIR . 'inc/class-core.php';

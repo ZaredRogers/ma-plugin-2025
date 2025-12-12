@@ -8,8 +8,6 @@ namespace medical_academic_enhancements\classes;
  * @since 6.5.0 Block Bindings API
  */
 
-namespace example_plugin\classes;
-
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -24,7 +22,7 @@ class Block_Bindings {
 	 *
 	 * @var string
 	 */
-	const SOURCE = 'medical_academic_enhancements/fields';
+	const SOURCE = 'medical-academic-enhancements/field';
 
 	/**
 	 * Constructor.
@@ -44,31 +42,52 @@ class Block_Bindings {
 		}
 
 		register_block_bindings_source(
-			'example-plugin/post-meta',
+			self::SOURCE,
 			array(
-				'label'              => __( 'Example Plugin Post Meta', 'medical-academic-enhancements' ),
-				'get_value_callback' => array( $this, 'get_post_meta_value' ),
+				'label'              => __( 'Medical Academic Field', 'medical-academic-enhancements' ),
+				'get_value_callback' => array( $this, 'get_field_value' ),
 				'uses_context'       => array( 'postId' ),
 			)
 		);
 	}
 
 	/**
-	 * Example binding: fetch a scalar post meta value.
+	 * Get the value of a field.
 	 *
 	 * @param array $args    Binding arguments (expects 'key').
 	 * @param array $context Binding context (expects 'postId').
 	 * @return string|null
 	 */
-	public function get_post_meta_value( $args, $context ) {
+	public function get_field_value( $args, $context ) {
 		if ( empty( $args['key'] ) || empty( $context['postId'] ) ) {
 			return null;
 		}
 
-		$meta = get_post_meta( (int) $context['postId'], $args['key'], true );
+		$post_id = (int) $context['postId'];
+		$key     = $args['key'];
+		$value   = null;
 
-		if ( is_scalar( $meta ) ) {
-			return (string) $meta;
+		// Use SCF/ACF if available.
+		if ( function_exists( 'get_field' ) ) {
+			$value = get_field( $key, $post_id );
+		} else {
+			// Fallback to post meta.
+			$value = get_post_meta( $post_id, $key, true );
+		}
+
+		if ( is_scalar( $value ) ) {
+			return (string) $value;
+		}
+
+		if ( is_array( $value ) ) {
+			// Handle array values (e.g., images, relationships) simply for now.
+			// For images, if it's an array with 'url', return that.
+			if ( isset( $value['url'] ) ) {
+				return $value['url'];
+			}
+			
+			// For other arrays, return a comma-separated list if possible, or JSON.
+			return implode( ', ', array_filter( $value, 'is_scalar' ) );
 		}
 
 		return null;

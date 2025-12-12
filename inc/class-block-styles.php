@@ -5,7 +5,7 @@
  * @package example_plugin
  */
 
-namespace example_plugin\classes;
+namespace medical_academic_enhancements\classes;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

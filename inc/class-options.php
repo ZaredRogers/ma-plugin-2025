@@ -12,8 +12,6 @@ namespace medical_academic_enhancements\classes;
  * @see https://github.com/WordPress/secure-custom-fields/blob/trunk/docs/code-reference/api/index.md
  */
 
-namespace example_plugin\classes;
-
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -30,14 +28,14 @@ class Options {
 	 *
 	 * @var string
 	 */
-	const OPTIONS_PAGE = 'example-plugin-settings';
+	const OPTIONS_PAGE = 'medical-academic-settings';
 
 	/**
 	 * Field group key for main settings.
 	 *
 	 * @var string
 	 */
-	const FIELD_GROUP = 'group_example-plugin_options';
+	const FIELD_GROUP = 'group_medical_academic_options';
 
 	/**
 	 * Constructor.
@@ -69,52 +67,13 @@ class Options {
 			return;
 		}
 
-		// Main options page.
 		acf_add_options_page(
 			array(
-				'page_title'      => __( 'Example Plugin Settings', 'medical-academic-enhancements' ),
-				'menu_title'      => __( 'Example Plugin', 'medical-academic-enhancements' ),
-				'menu_slug'       => self::OPTIONS_PAGE,
-				'capability'      => 'manage_options',
-				'icon_url'        => 'dashicons-admin-generic',
-				'redirect'        => false,
-				'position'        => 30,
-				'update_button'   => __( 'Save Settings', 'medical-academic-enhancements' ),
-				'updated_message' => __( 'Settings saved.', 'medical-academic-enhancements' ),
-				'autoload'        => true,
-			)
-		);
-
-		// General settings sub-page.
-		acf_add_options_sub_page(
-			array(
-				'page_title'  => __( 'General Settings', 'medical-academic-enhancements' ),
-				'menu_title'  => __( 'General', 'medical-academic-enhancements' ),
-				'parent_slug' => self::OPTIONS_PAGE,
-				'menu_slug'   => self::OPTIONS_PAGE . '-general',
-				'capability'  => 'manage_options',
-			)
-		);
-
-		// Display settings sub-page.
-		acf_add_options_sub_page(
-			array(
-				'page_title'  => __( 'Display Settings', 'medical-academic-enhancements' ),
-				'menu_title'  => __( 'Display', 'medical-academic-enhancements' ),
-				'parent_slug' => self::OPTIONS_PAGE,
-				'menu_slug'   => self::OPTIONS_PAGE . '-display',
-				'capability'  => 'manage_options',
-			)
-		);
-
-		// API settings sub-page.
-		acf_add_options_sub_page(
-			array(
-				'page_title'  => __( 'API Settings', 'medical-academic-enhancements' ),
-				'menu_title'  => __( 'API', 'medical-academic-enhancements' ),
-				'parent_slug' => self::OPTIONS_PAGE,
-				'menu_slug'   => self::OPTIONS_PAGE . '-api',
-				'capability'  => 'manage_options',
+				'page_title' => __( 'Medical Academic Settings', 'medical-academic-enhancements' ),
+				'menu_title' => __( 'MA Settings', 'medical-academic-enhancements' ),
+				'menu_slug'  => self::OPTIONS_PAGE,
+				'capability' => 'manage_options',
+				'redirect'   => false,
 			)
 		);
 	}
@@ -125,179 +84,20 @@ class Options {
 	 * @return void
 	 */
 	public function register_options_fields() {
-		if ( ! function_exists( 'acf_add_local_field_group' ) ) {
+		if ( ! $this->is_scf_active() ) {
 			return;
 		}
 
-		// General Settings fields.
 		acf_add_local_field_group(
 			array(
-				'key'             => self::FIELD_GROUP . '_general',
-				'title'           => __( 'General Settings', 'medical-academic-enhancements' ),
-				'fields'          => array(
-					// Tab: Branding.
-					array(
-						'key'   => 'field_example-plugin_tab_branding',
-						'label' => __( 'Branding', 'medical-academic-enhancements' ),
-						'type'  => 'tab',
-					),
-					array(
-						'key'           => 'field_example-plugin_logo',
-						'label'         => __( 'Logo', 'medical-academic-enhancements' ),
-						'name'          => 'example-plugin_logo',
-						'type'          => 'image',
-						'return_format' => 'array',
-						'preview_size'  => 'medium',
-						'library'       => 'all',
-						'instructions'  => __( 'Upload your site logo.', 'medical-academic-enhancements' ),
-					),
-					array(
-						'key'          => 'field_example-plugin_company_name',
-						'label'        => __( 'Company Name', 'medical-academic-enhancements' ),
-						'name'         => 'example-plugin_company_name',
-						'type'         => 'text',
-						'instructions' => __( 'Enter your company or organisation name.', 'medical-academic-enhancements' ),
-					),
-					array(
-						'key'          => 'field_example-plugin_tagline',
-						'label'        => __( 'Tagline', 'medical-academic-enhancements' ),
-						'name'         => 'example-plugin_tagline',
-						'type'         => 'text',
-						'instructions' => __( 'Enter a short tagline or slogan.', 'medical-academic-enhancements' ),
-					),
-					// Tab: Contact.
-					array(
-						'key'   => 'field_example-plugin_tab_contact',
-						'label' => __( 'Contact', 'medical-academic-enhancements' ),
-						'type'  => 'tab',
-					),
-					array(
-						'key'          => 'field_example-plugin_email',
-						'label'        => __( 'Email Address', 'medical-academic-enhancements' ),
-						'name'         => 'example-plugin_email',
-						'type'         => 'email',
-						'instructions' => __( 'Primary contact email address.', 'medical-academic-enhancements' ),
-					),
-					array(
-						'key'          => 'field_example-plugin_phone',
-						'label'        => __( 'Phone Number', 'medical-academic-enhancements' ),
-						'name'         => 'example-plugin_phone',
-						'type'         => 'text',
-						'instructions' => __( 'Primary contact phone number.', 'medical-academic-enhancements' ),
-					),
-					array(
-						'key'          => 'field_example-plugin_address',
-						'label'        => __( 'Address', 'medical-academic-enhancements' ),
-						'name'         => 'example-plugin_address',
-						'type'         => 'textarea',
-						'rows'         => 3,
-						'instructions' => __( 'Physical address or mailing address.', 'medical-academic-enhancements' ),
-					),
-					// Tab: Social Media.
-					array(
-						'key'   => 'field_example-plugin_tab_social',
-						'label' => __( 'Social Media', 'medical-academic-enhancements' ),
-						'type'  => 'tab',
-					),
-					array(
-						'key'          => 'field_example-plugin_social_links',
-						'label'        => __( 'Social Links', 'medical-academic-enhancements' ),
-						'name'         => 'example-plugin_social_links',
-						'type'         => 'repeater',
-						'layout'       => 'table',
-						'button_label' => __( 'Add Social Link', 'medical-academic-enhancements' ),
-						'sub_fields'   => array(
-							array(
-								'key'     => 'field_example-plugin_social_platform',
-								'label'   => __( 'Platform', 'medical-academic-enhancements' ),
-								'name'    => 'platform',
-								'type'    => 'select',
-								'choices' => array(
-									'facebook'  => __( 'Facebook', 'medical-academic-enhancements' ),
-									'twitter'   => __( 'Twitter/X', 'medical-academic-enhancements' ),
-									'instagram' => __( 'Instagram', 'medical-academic-enhancements' ),
-									'linkedin'  => __( 'LinkedIn', 'medical-academic-enhancements' ),
-									'youtube'   => __( 'YouTube', 'medical-academic-enhancements' ),
-									'tiktok'    => __( 'TikTok', 'medical-academic-enhancements' ),
-									'other'     => __( 'Other', 'medical-academic-enhancements' ),
-								),
-							),
-							array(
-								'key'   => 'field_example-plugin_social_url',
-								'label' => __( 'URL', 'medical-academic-enhancements' ),
-								'name'  => 'url',
-								'type'  => 'url',
-							),
-						),
-					),
-				),
-				'location'        => array(
-					array(
-						array(
-							'param'    => 'options_page',
-							'operator' => '==',
-							'value'    => self::OPTIONS_PAGE . '-general',
-						),
-					),
-				),
-				'menu_order'      => 0,
-				'position'        => 'normal',
-				'style'           => 'default',
-				'label_placement' => 'top',
-			)
-		);
-
-		// Display Settings fields.
-		acf_add_local_field_group(
-			array(
-				'key'      => self::FIELD_GROUP . '_display',
-				'title'    => __( 'Display Settings', 'medical-academic-enhancements' ),
+				'key'      => self::FIELD_GROUP,
+				'title'    => __( 'General Settings', 'medical-academic-enhancements' ),
 				'fields'   => array(
 					array(
-						'key'          => 'field_example-plugin_items_per_page',
-						'label'        => __( 'Items Per Page', 'medical-academic-enhancements' ),
-						'name'         => 'example-plugin_items_per_page',
-						'type'         => 'number',
-						'default'      => 12,
-						'min'          => 1,
-						'max'          => 100,
-						'instructions' => __( 'Number of items to display per page in archive views.', 'medical-academic-enhancements' ),
-					),
-					array(
-						'key'          => 'field_example-plugin_layout',
-						'label'        => __( 'Archive Layout', 'medical-academic-enhancements' ),
-						'name'         => 'example-plugin_layout',
-						'type'         => 'button_group',
-						'choices'      => array(
-							'grid'    => __( 'Grid', 'medical-academic-enhancements' ),
-							'list'    => __( 'List', 'medical-academic-enhancements' ),
-							'masonry' => __( 'Masonry', 'medical-academic-enhancements' ),
-						),
-						'default'      => 'grid',
-						'instructions' => __( 'Choose the default layout for archive pages.', 'medical-academic-enhancements' ),
-					),
-					array(
-						'key'          => 'field_example-plugin_show_sidebar',
-						'label'        => __( 'Show Sidebar', 'medical-academic-enhancements' ),
-						'name'         => 'example-plugin_show_sidebar',
-						'type'         => 'true_false',
-						'ui'           => 1,
-						'default'      => 1,
-						'instructions' => __( 'Display sidebar on archive and single views.', 'medical-academic-enhancements' ),
-					),
-					array(
-						'key'          => 'field_example-plugin_featured_image_size',
-						'label'        => __( 'Featured Image Size', 'medical-academic-enhancements' ),
-						'name'         => 'example-plugin_featured_image_size',
-						'type'         => 'select',
-						'choices'      => array(
-							'thumbnail' => __( 'Thumbnail (150x150)', 'medical-academic-enhancements' ),
-							'medium'    => __( 'Medium (300x300)', 'medical-academic-enhancements' ),
-							'large'     => __( 'Large (1024x1024)', 'medical-academic-enhancements' ),
-							'full'      => __( 'Full Size', 'medical-academic-enhancements' ),
-						),
-						'default'      => 'medium',
-						'instructions' => __( 'Image size for featured images in listings.', 'medical-academic-enhancements' ),
+						'key'   => 'field_ma_api_key',
+						'label' => __( 'API Key', 'medical-academic-enhancements' ),
+						'name'  => 'ma_api_key',
+						'type'  => 'text',
 					),
 				),
 				'location' => array(
@@ -305,106 +105,11 @@ class Options {
 						array(
 							'param'    => 'options_page',
 							'operator' => '==',
-							'value'    => self::OPTIONS_PAGE . '-display',
+							'value'    => self::OPTIONS_PAGE,
 						),
 					),
 				),
 			)
 		);
-
-		// API Settings fields.
-		acf_add_local_field_group(
-			array(
-				'key'      => self::FIELD_GROUP . '_api',
-				'title'    => __( 'API Settings', 'medical-academic-enhancements' ),
-				'fields'   => array(
-					array(
-						'key'          => 'field_example-plugin_api_key',
-						'label'        => __( 'API Key', 'medical-academic-enhancements' ),
-						'name'         => 'example-plugin_api_key',
-						'type'         => 'text',
-						'instructions' => __( 'Enter your API key for external integrations.', 'medical-academic-enhancements' ),
-					),
-					array(
-						'key'          => 'field_example-plugin_api_secret',
-						'label'        => __( 'API Secret', 'medical-academic-enhancements' ),
-						'name'         => 'example-plugin_api_secret',
-						'type'         => 'password',
-						'instructions' => __( 'Enter your API secret (stored securely).', 'medical-academic-enhancements' ),
-					),
-					array(
-						'key'          => 'field_example-plugin_api_endpoint',
-						'label'        => __( 'API Endpoint', 'medical-academic-enhancements' ),
-						'name'         => 'example-plugin_api_endpoint',
-						'type'         => 'url',
-						'instructions' => __( 'Custom API endpoint URL.', 'medical-academic-enhancements' ),
-					),
-					array(
-						'key'          => 'field_example-plugin_enable_api',
-						'label'        => __( 'Enable API', 'medical-academic-enhancements' ),
-						'name'         => 'example-plugin_enable_api',
-						'type'         => 'true_false',
-						'ui'           => 1,
-						'default'      => 0,
-						'instructions' => __( 'Enable external API integration.', 'medical-academic-enhancements' ),
-					),
-					array(
-						'key'          => 'field_example-plugin_api_cache_duration',
-						'label'        => __( 'Cache Duration', 'medical-academic-enhancements' ),
-						'name'         => 'example-plugin_api_cache_duration',
-						'type'         => 'number',
-						'default'      => 3600,
-						'min'          => 0,
-						'append'       => __( 'seconds', 'medical-academic-enhancements' ),
-						'instructions' => __( 'How long to cache API responses (0 to disable).', 'medical-academic-enhancements' ),
-					),
-				),
-				'location' => array(
-					array(
-						array(
-							'param'    => 'options_page',
-							'operator' => '==',
-							'value'    => self::OPTIONS_PAGE . '-api',
-						),
-					),
-				),
-			)
-		);
-	}
-
-	/**
-	 * Get an option value.
-	 *
-	 * Helper method to retrieve option values using get_field().
-	 *
-	 * @param string $field_name The field name without prefix.
-	 * @param mixed  $default    Default value if field is empty.
-	 * @return mixed The field value or default.
-	 */
-	public static function get_option( $field_name, $default = '' ) {
-		if ( ! function_exists( 'get_field' ) ) {
-			return $default;
-		}
-
-		$value = get_field( 'example-plugin_' . $field_name, 'option' );
-
-		return $value ? $value : $default;
-	}
-
-	/**
-	 * Update an option value.
-	 *
-	 * Helper method to update option values using update_field().
-	 *
-	 * @param string $field_name The field name without prefix.
-	 * @param mixed  $value      The value to save.
-	 * @return bool True on success, false on failure.
-	 */
-	public static function update_option( $field_name, $value ) {
-		if ( ! function_exists( 'update_field' ) ) {
-			return false;
-		}
-
-		return update_field( 'example-plugin_' . $field_name, $value, 'option' );
 	}
 }

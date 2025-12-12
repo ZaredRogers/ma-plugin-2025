@@ -11,8 +11,6 @@ namespace medical_academic_enhancements\classes;
  * @see https://github.com/WordPress/secure-custom-fields/blob/trunk/docs/tutorials/local-json.md
  */
 
-namespace example_plugin\classes;
-
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -82,9 +80,9 @@ class SCF_JSON_Validator {
 	 * Constructor.
 	 */
 	public function __construct() {
-		$this->schema_path = EXAMPLE_PLUGIN_PLUGIN_DIR . 'scf-json/schema/scf-field-group.schema.json';
+		$this->schema_path = MEDICAL_ACADEMIC_ENHANCEMENTS_PLUGIN_DIR . 'scf-json/schema/scf-field-group.schema.json';
 
-		if ( class_exists( 'example_plugin\classes\SCF_JSON' ) ) {
+		if ( class_exists( __NAMESPACE__ . '\SCF_JSON' ) ) {
 			$this->scf_json = new SCF_JSON();
 		}
 
